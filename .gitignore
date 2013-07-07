@@ -1,0 +1,12 @@
+*.gz
+*~
+#*#
+._*
+*.qual
+*.bloom
+trimmed_*.fasta
+*.stderr
+basic_hmmgs.txt
+ref_aligned.fasta_*
+ref_aligned.fasta.alignment
+.nfs*

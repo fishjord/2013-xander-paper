@@ -1,0 +1,5 @@
+Analysis scripts for the 2013 Xander paper.
+
+Two datasets were analyzed, the HMP mock community (hmp/) and a switchgrass rhizosphere sample from KBS (MSR2/).
+
+To regenerate the analyses cd to the analysis directory and type `make`.
