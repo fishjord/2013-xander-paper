@@ -4,13 +4,13 @@ SEQFILE=trimmed_hmp_mock.fasta
 FILTER_SIZE= 34 # 2**FILTER_SIZE, 38 = 32 gigs, 37 = 16 gigs, 36 = 8 gigs, 35 = 4 gigs
 K_SIZE= 21
 
-genes= rplb
+genes= rplb nirk
 
 export
 
 all: $(genes)
 
-.PHONY: $(genes)
+.PHONY: $(genes) clean $(genes)-clean bloom
 
 bloom: $(NAME).bloom
 
@@ -29,5 +29,7 @@ $(SEQFILE): SRR172903.fastq.gz SRR172902.fastq.gz
 	wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR172/SRR172903/SRR172903.fastq.gz
 	wget ftp://ftp.sra.ebi.ac.uk/vol1/fastq/SRR172/SRR172902/SRR172902.fastq.gz
 
-nirk_starts.txt: $(SEQFILE)
-	java -Xmx2g -jar $(JAR_DIR)/KmerFilter.jar fast_kmer_filter --threads 4 -a -o nirk_starts.txt $(K_SIZE) $(SEQFILE) nirk=/home/fishjord/nirk/nirk_startpoint_refs.sto
+clean: $(genes).clean
+
+%.clean:
+	cd $*; $(MAKE) --makefile ../gene.Makefile clean
