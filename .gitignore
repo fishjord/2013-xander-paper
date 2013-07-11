@@ -10,3 +10,10 @@ basic_hmmgs.txt
 *.fasta
 .nfs*
 *.clstr
+gene_starts.txt*
+diginorm_log.txt
+filtered_starts.txt
+starts.txt
+*.keep
+*.sto
+primer_summary.txt
